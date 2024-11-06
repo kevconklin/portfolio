@@ -5,29 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kevin Conklin - Software Engineer</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts for better typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* General reset for margin and padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fafafa; /* Light background color */
+      color: #212121; /* Dark gray text for good contrast */
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #1d1d1d; /* Darker gray color */
+      font-weight: 500;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #757575; /* Lighter gray for the subtitle */
+      margin-top: 10px;
+    }
+
+    /* Section styles */
+    section {
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #424242; /* Slightly lighter gray for headings */
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #616161; /* Slightly lighter gray for general content */
+    }
+
+    /* Link styling */
+    a {
+      color: #1976d2; /* Material Blue for links */
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Projects section styling */
+    .projects ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .projects li {
+      margin: 15px 0;
+      font-size: 1.1rem;
+    }
+
+    .projects a {
+      color: #1976d2;
+      transition: color 0.3s ease;
+    }
+
+    .projects a:hover {
+      color: #1565c0; /* Slightly darker blue on hover */
+    }
+
+    /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #263238; /* Dark blue-gray footer background */
+      color: white;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design for smaller screens */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <header>
       <h1>Kevin Conklin</h1>
+      <p>Engineer | Tech Enthusiast</p>
     </header>
 
     <section class="intro">
-      <p>Check out my work below and feel free to reach out for collaboration or inquiries.</p>
-      <p>Check out my <a href="https://medium.com/@kevinconklin_17818" target="_blank">Medium page</a> for more detailed tech walkthroughs</p>
-      
+      <p>Welcome to my personal site! Explore my latest work, and feel free to reach out for collaborations or inquiries.</p>
+      <p>For in-depth tech walkthroughs and articles, visit my <a href="https://medium.com/@kevinconklin_17818" target="_blank">Medium page</a>.</p>
     </section>
 
     <section class="projects">
-      <h2>Projects</h2>
+      <h2>Featured Projects</h2>
       <ul>
         <li><a href="https://github.com/kevconklin/bq_vector_store" target="_blank">BigQuery Vector Store</a></li>
-        <li><a href="https://github.com/kevconklin/warcardgame_boltnew" target=_blank">"War" Card Game (bolt.net demo)</a></li>
+        <li><a href="https://github.com/kevconklin/warcardgame_boltnew" target="_blank">"War" Card Game (bolt.net demo)</a></li>
       </ul>
     </section>
 
     <footer>
-      <p>&copy; 2024 Kevin Conklin - All Rights Reserved</p>
+      <p>&copy; 2024 Kevin Conklin. All Rights Reserved.</p>
     </footer>
   </div>
 </body>
