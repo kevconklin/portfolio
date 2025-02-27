@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kevin Conklin - Software Engineer</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Google Fonts for better typography -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    /* General reset for margin and padding */
     * {
       margin: 0;
       padding: 0;
@@ -17,8 +15,8 @@
 
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #fafafa; /* Light background color */
-      color: #212121; /* Dark gray text for good contrast */
+      background-color: #fafafa;
+      color: #212121;
       line-height: 1.6;
     }
 
@@ -36,38 +34,29 @@
 
     header h1 {
       font-size: 3rem;
-      color: #1d1d1d; /* Darker gray color */
+      color: #1d1d1d;
       font-weight: 500;
     }
 
     header p {
       font-size: 1.2rem;
-      color: #757575; /* Lighter gray for the subtitle */
+      color: #757575;
       margin-top: 10px;
     }
 
-    /* Section styles */
-    section {
+    .intro {
+      text-align: center;
       margin-bottom: 40px;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      color: #424242; /* Slightly lighter gray for headings */
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      font-weight: 500;
     }
 
     .intro p {
       font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: #616161; /* Slightly lighter gray for general content */
+      color: #616161;
+      margin-bottom: 10px;
     }
 
-    /* Link styling */
     a {
-      color: #1976d2; /* Material Blue for links */
+      color: #1976d2;
       text-decoration: none;
     }
 
@@ -75,13 +64,31 @@
       text-decoration: underline;
     }
 
-    /* Projects section styling */
-    .projects ul {
+    .content {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .content section {
+      flex: 1;
+    }
+
+    .content h2 {
+      font-size: 2rem;
+      color: #424242;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .projects ul, .books ul {
       list-style-type: none;
       padding: 0;
     }
 
-    .projects li {
+    .projects li, .books li {
       margin: 15px 0;
       font-size: 1.1rem;
     }
@@ -92,34 +99,36 @@
     }
 
     .projects a:hover {
-      color: #1565c0; /* Slightly darker blue on hover */
+      color: #1565c0;
     }
 
-    /* Footer styling */
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      background-color: #263238; /* Dark blue-gray footer background */
-      color: white;
-    }
-
-    footer p {
-      font-size: 0.9rem;
-    }
-
-    /* Responsive Design for smaller screens */
     @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+      }
+      
       header h1 {
         font-size: 2.2rem;
       }
 
-      section h2 {
+      .content h2 {
         font-size: 1.5rem;
       }
 
       .container {
         padding: 10px;
       }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #263238;
+      color: white;
+    }
+
+    footer p {
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -135,15 +144,26 @@
       <p>For in-depth tech walkthroughs and articles, visit my <a href="https://medium.com/@kevinconklin_17818" target="_blank">Medium page</a>.</p>
     </section>
 
-    <section class="projects">
-      <h2>Featured Projects</h2>
-      <ul>
-        <li><a href="https://medium.com/@kevinconklin_17818/how-do-genai-models-grade-other-modeloutputs-e8d88d293e25" target="_blank">LLMs Evaluating LLMs</a></li>
-        <li><a href="https://medium.com/@kevinconklin_17818/simplify-testing-fine-tuned-llms-and-prompts-e0a6c2cfcdbf" target="_blank">Simple LLM Testing Framework</a></li>
-        <li><a href="https://github.com/kevconklin/bq_vector_store" target="_blank">BigQuery Vector Store</a></li>
-        <li><a href="https://github.com/kevconklin/warcardgame_boltnew" target="_blank">"War" Card Game (bolt.net demo)</a></li>
-      </ul>
-    </section>
+    <div class="content">
+      <section class="projects">
+        <h2>Featured Projects</h2>
+        <ul>
+          <li><a href="https://medium.com/@kevinconklin_17818/how-do-genai-models-grade-other-modeloutputs-e8d88d293e25" target="_blank">LLMs Evaluating LLMs</a></li>
+          <li><a href="https://medium.com/@kevinconklin_17818/simplify-testing-fine-tuned-llms-and-prompts-e0a6c2cfcdbf" target="_blank">Simple LLM Testing Framework</a></li>
+          <li><a href="https://github.com/kevconklin/bq_vector_store" target="_blank">BigQuery Vector Store</a></li>
+          <li><a href="https://github.com/kevconklin/warcardgame_boltnew" target="_blank">"War" Card Game (bolt.net demo)</a></li>
+        </ul>
+      </section>
+
+      <section class="books">
+        <h2>Books I'm Reading</h2>
+        <ul>
+          <li><a href="https://www.goodreads.com/book/show/17332218-the-phoenix-project" target="_blank">The Phoenix Project</a> - Gene Kim</li>
+          <li><a href="https://www.goodreads.com/book/show/34466958-accelerate" target="_blank">Accelerate</a> - Nicole Forsgren, Jez Humble, Gene Kim</li>
+          <li><a href="https://www.goodreads.com/book/show/14497434-thinking-fast-and-slow" target="_blank">Thinking, Fast and Slow</a> - Daniel Kahneman</li>
+        </ul>
+      </section>
+    </div>
 
     <footer>
       <p>&copy; 2024 Kevin Conklin. All Rights Reserved.</p>
