@@ -4,148 +4,137 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kevin Conklin - Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #fafafa;
-      color: #212121;
-      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      overflow-x: hidden;
     }
 
     .container {
-      width: 100%;
+      width: 90%;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
       padding: 20px;
     }
 
     header {
       text-align: center;
-      margin-bottom: 40px;
+      padding: 40px 0;
     }
 
     header h1 {
       font-size: 3rem;
-      color: #1d1d1d;
-      font-weight: 500;
+      font-weight: 600;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     header p {
       font-size: 1.2rem;
-      color: #757575;
+      opacity: 0.8;
       margin-top: 10px;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .intro p {
-      font-size: 1.1rem;
-      color: #616161;
-      margin-bottom: 10px;
-    }
-
-    a {
-      color: #1976d2;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      animation: fadeIn 2s ease-in-out;
     }
 
     .content {
       display: flex;
-      justify-content: space-between;
       gap: 40px;
+      justify-content: space-between;
       margin-bottom: 40px;
-      align-items: flex-start;
     }
 
     .content section {
       flex: 1;
-      text-align: left;
-      max-height: 250px;
-      overflow-y: auto;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .content section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     }
 
     .content h2 {
       font-size: 1.8rem;
-      color: #424242;
       margin-bottom: 10px;
-      text-transform: uppercase;
-      font-weight: 500;
+      border-bottom: 2px solid #00c6ff;
+      padding-bottom: 5px;
+      display: inline-block;
     }
 
     .projects ul, .books ul {
       list-style-type: none;
-      padding: 0;
+      margin-top: 10px;
     }
 
     .projects li, .books li {
-      margin: 10px 0;
+      margin: 15px 0;
       font-size: 1.1rem;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .projects li:hover, .books li:hover {
+      transform: translateX(8px);
     }
 
     .projects a, .books a {
-      color: #1976d2;
+      color: #00c6ff;
+      text-decoration: none;
+      font-weight: 500;
       transition: color 0.3s ease;
     }
 
     .projects a:hover, .books a:hover {
-      color: #1565c0;
+      color: #ffcc00;
     }
 
     select {
       width: 100%;
-      padding: 8px;
-      margin: 10px 0;
+      padding: 10px;
+      margin-top: 10px;
       border-radius: 5px;
-      border: 1px solid #ddd;
+      border: none;
       font-size: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      outline: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
       .content {
         flex-direction: column;
       }
-      
-      header h1 {
-        font-size: 2.2rem;
-      }
-
-      .content h2 {
-        font-size: 1.5rem;
-      }
-
-      .container {
-        padding: 10px;
-      }
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px 0;
-      background-color: #263238;
-      color: white;
-    }
-
-    footer p {
-      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -156,28 +145,23 @@
       <p>Engineer | Tech Enthusiast</p>
     </header>
 
-    <section class="intro">
-      <p>Please see the links below for some of my personal projects.</p>
-      <p>For in-depth tech walkthroughs and articles, visit my <a href="https://medium.com/@kevinconklin_17818" target="_blank">Medium page</a>.</p>
-    </section>
-
     <div class="content">
       <!-- Featured Projects -->
       <section class="projects">
         <h2>Featured Projects</h2>
         <ul>
-          <li><a href="https://medium.com/@kevinconklin_17818/how-do-genai-models-grade-other-modeloutputs-e8d88d293e25" target="_blank">LLMs Evaluating LLMs</a></li>
-          <li><a href="https://medium.com/@kevinconklin_17818/simplify-testing-fine-tuned-llms-and-prompts-e0a6c2cfcdbf" target="_blank">Simple LLM Testing Framework</a></li>
-          <li><a href="https://github.com/kevconklin/bq_vector_store" target="_blank">BigQuery Vector Store</a></li>
-          <li><a href="https://github.com/kevconklin/warcardgame_boltnew" target="_blank">"War" Card Game (bolt.net demo)</a></li>
+          <li><a href="#">LLMs Evaluating LLMs</a></li>
+          <li><a href="#">Simple LLM Testing Framework</a></li>
+          <li><a href="#">BigQuery Vector Store</a></li>
+          <li><a href="#">"War" Card Game (bolt.net demo)</a></li>
         </ul>
       </section>
 
       <!-- Books I'm Reading -->
       <section class="books">
         <h2>Books I'm Reading</h2>
-        
-        <!-- Filter by Year Dropdown -->
+
+        <!-- Filter by Year -->
         <label for="yearFilter">Filter by Year:</label>
         <select id="yearFilter" onchange="filterBooks()">
           <option value="all">All</option>
@@ -187,24 +171,21 @@
         </select>
 
         <ul id="booksList">
-          <li data-year="2024"><a href="https://www.goodreads.com/book/show/17332218-the-phoenix-project" target="_blank">The Stormlight Archive</a> - Brandon Sanderson</li>
-          <li data-year="2023"><a href="https://www.goodreads.com/book/show/34466958-accelerate" target="_blank">Accelerate</a> - Nicole Forsgren, Jez Humble, Gene Kim</li>
-          <li data-year="2022"><a href="https://www.goodreads.com/book/show/14497434-thinking-fast-and-slow" target="_blank">Thinking, Fast and Slow</a> - Daniel Kahneman</li>
+          <li data-year="2024"><a href="#">The Stormlight Archive</a> - Brandon Sanderson</li>
+          <li data-year="2023"><a href="#">Accelerate</a> - Nicole Forsgren</li>
+          <li data-year="2022"><a href="#">Thinking, Fast and Slow</a> - Daniel Kahneman</li>
         </ul>
       </section>
     </div>
 
-    <!-- Books I Recommend -->
     <section class="recommendations">
       <h2>Books I Recommend</h2>
-      <label for="recommendDropdown">Select a Book:</label>
       <select id="recommendDropdown" onchange="showRecommendation()">
         <option value="">Select a Book</option>
         <option value="Deep Work">Deep Work - Cal Newport</option>
-        <option value="The Pragmatic Programmer">The Pragmatic Programmer - Andrew Hunt, David Thomas</option>
+        <option value="The Pragmatic Programmer">The Pragmatic Programmer - Andrew Hunt</option>
         <option value="Clean Code">Clean Code - Robert C. Martin</option>
       </select>
-
       <p id="selectedRecommendation"></p>
     </section>
 
@@ -216,21 +197,14 @@
   <script>
     function filterBooks() {
       var selectedYear = document.getElementById("yearFilter").value;
-      var books = document.querySelectorAll("#booksList li");
-
-      books.forEach(book => {
-        if (selectedYear === "all" || book.getAttribute("data-year") === selectedYear) {
-          book.style.display = "block";
-        } else {
-          book.style.display = "none";
-        }
+      document.querySelectorAll("#booksList li").forEach(book => {
+        book.style.display = selectedYear === "all" || book.dataset.year === selectedYear ? "block" : "none";
       });
     }
 
     function showRecommendation() {
       var selectedBook = document.getElementById("recommendDropdown").value;
-      var display = document.getElementById("selectedRecommendation");
-      display.innerText = selectedBook ? `You selected: ${selectedBook}` : "";
+      document.getElementById("selectedRecommendation").innerText = selectedBook ? `You selected: ${selectedBook}` : "";
     }
   </script>
 </body>
