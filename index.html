@@ -75,12 +75,18 @@
     .content section {
       flex: 1;
       text-align: left;
+      max-height: 250px;
+      overflow-y: auto;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
     }
 
     .content h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: #424242;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       text-transform: uppercase;
       font-weight: 500;
     }
@@ -91,7 +97,7 @@
     }
 
     .projects li, .books li {
-      margin: 15px 0;
+      margin: 10px 0;
       font-size: 1.1rem;
     }
 
@@ -102,6 +108,15 @@
 
     .projects a:hover, .books a:hover {
       color: #1565c0;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
     }
 
     @media (max-width: 768px) {
@@ -142,34 +157,4 @@
     </header>
 
     <section class="intro">
-      <p>Please see the links below for some of my personal projects.</p>
-      <p>For in-depth tech walkthroughs and articles, visit my <a href="https://medium.com/@kevinconklin_17818" target="_blank">Medium page</a>.</p>
-    </section>
-
-    <div class="content">
-      <section class="projects">
-        <h2>Featured Projects</h2>
-        <ul>
-          <li><a href="https://medium.com/@kevinconklin_17818/how-do-genai-models-grade-other-modeloutputs-e8d88d293e25" target="_blank">LLMs Evaluating LLMs</a></li>
-          <li><a href="https://medium.com/@kevinconklin_17818/simplify-testing-fine-tuned-llms-and-prompts-e0a6c2cfcdbf" target="_blank">Simple LLM Testing Framework</a></li>
-          <li><a href="https://github.com/kevconklin/bq_vector_store" target="_blank">BigQuery Vector Store</a></li>
-          <li><a href="https://github.com/kevconklin/warcardgame_boltnew" target="_blank">"War" Card Game (bolt.net demo)</a></li>
-        </ul>
-      </section>
-
-      <section class="books">
-        <h2>Books I'm Reading</h2>
-        <ul>
-          <li><a href="https://www.goodreads.com/book/show/17332218-the-phoenix-project" target="_blank">The Stormlight Archive</a> - Brandon Sanderson</li>
-          <li><a href="https://www.goodreads.com/book/show/34466958-accelerate" target="_blank">Accelerate</a> - Nicole Forsgren, Jez Humble, Gene Kim</li>
-          <li><a href="https://www.goodreads.com/book/show/14497434-thinking-fast-and-slow" target="_blank">Thinking, Fast and Slow</a> - Daniel Kahneman</li>
-        </ul>
-      </section>
-    </div>
-
-    <footer>
-      <p>&copy; 2024 Kevin Conklin. All Rights Reserved.</p>
-    </footer>
-  </div>
-</body>
-</html>
+      <p>Please see the links below for some of
