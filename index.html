@@ -157,4 +157,81 @@
     </header>
 
     <section class="intro">
-      <p>Please see the links below for some of
+      <p>Please see the links below for some of my personal projects.</p>
+      <p>For in-depth tech walkthroughs and articles, visit my <a href="https://medium.com/@kevinconklin_17818" target="_blank">Medium page</a>.</p>
+    </section>
+
+    <div class="content">
+      <!-- Featured Projects -->
+      <section class="projects">
+        <h2>Featured Projects</h2>
+        <ul>
+          <li><a href="https://medium.com/@kevinconklin_17818/how-do-genai-models-grade-other-modeloutputs-e8d88d293e25" target="_blank">LLMs Evaluating LLMs</a></li>
+          <li><a href="https://medium.com/@kevinconklin_17818/simplify-testing-fine-tuned-llms-and-prompts-e0a6c2cfcdbf" target="_blank">Simple LLM Testing Framework</a></li>
+          <li><a href="https://github.com/kevconklin/bq_vector_store" target="_blank">BigQuery Vector Store</a></li>
+          <li><a href="https://github.com/kevconklin/warcardgame_boltnew" target="_blank">"War" Card Game (bolt.net demo)</a></li>
+        </ul>
+      </section>
+
+      <!-- Books I'm Reading -->
+      <section class="books">
+        <h2>Books I'm Reading</h2>
+        
+        <!-- Filter by Year Dropdown -->
+        <label for="yearFilter">Filter by Year:</label>
+        <select id="yearFilter" onchange="filterBooks()">
+          <option value="all">All</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+        </select>
+
+        <ul id="booksList">
+          <li data-year="2024"><a href="https://www.goodreads.com/book/show/17332218-the-phoenix-project" target="_blank">The Stormlight Archive</a> - Brandon Sanderson</li>
+          <li data-year="2023"><a href="https://www.goodreads.com/book/show/34466958-accelerate" target="_blank">Accelerate</a> - Nicole Forsgren, Jez Humble, Gene Kim</li>
+          <li data-year="2022"><a href="https://www.goodreads.com/book/show/14497434-thinking-fast-and-slow" target="_blank">Thinking, Fast and Slow</a> - Daniel Kahneman</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Books I Recommend -->
+    <section class="recommendations">
+      <h2>Books I Recommend</h2>
+      <label for="recommendDropdown">Select a Book:</label>
+      <select id="recommendDropdown" onchange="showRecommendation()">
+        <option value="">Select a Book</option>
+        <option value="Deep Work">Deep Work - Cal Newport</option>
+        <option value="The Pragmatic Programmer">The Pragmatic Programmer - Andrew Hunt, David Thomas</option>
+        <option value="Clean Code">Clean Code - Robert C. Martin</option>
+      </select>
+
+      <p id="selectedRecommendation"></p>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Kevin Conklin. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    function filterBooks() {
+      var selectedYear = document.getElementById("yearFilter").value;
+      var books = document.querySelectorAll("#booksList li");
+
+      books.forEach(book => {
+        if (selectedYear === "all" || book.getAttribute("data-year") === selectedYear) {
+          book.style.display = "block";
+        } else {
+          book.style.display = "none";
+        }
+      });
+    }
+
+    function showRecommendation() {
+      var selectedBook = document.getElementById("recommendDropdown").value;
+      var display = document.getElementById("selectedRecommendation");
+      display.innerText = selectedBook ? `You selected: ${selectedBook}` : "";
+    }
+  </script>
+</body>
+</html>
