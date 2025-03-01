@@ -4,216 +4,162 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kevin Conklin - Software Engineer</title>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
+    /* Global Reset & Base */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       scroll-behavior: smooth;
     }
-
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to top right, #1a2a6c, #b21f1f, #fdbb2d);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.5;
+    }
+    a {
+      text-decoration: none;
+      color: #008fc7; /* Accent color */
+    }
+    a:hover {
+      color: #005b85; /* Slightly darker accent on hover */
     }
 
-    /* Container wraps all content */
+    /* Container for all content */
     .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
+      width: 95%;
+      max-width: 800px;
+      margin: 0 auto;
       padding: 40px 20px;
-      flex: 1;
     }
 
-    /* Header / Hero */
+    /* Hero Section */
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
     header h1 {
       font-size: 3rem;
       font-weight: 600;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #008fc7, #00c6ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: fadeInDown 1.2s ease-in-out;
     }
     header p {
-      font-size: 1.25rem;
-      margin-top: 10px;
-      opacity: 0.8;
-      animation: fadeInUp 1.2s ease-in-out;
+      font-size: 1.2rem;
+      color: #555;
     }
 
-    /* Card Container */
-    .card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 30px;
-    }
-    @media (max-width: 768px) {
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Card Styles */
-    .card {
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    }
-    .card h2 {
-      border-bottom: 2px solid #00c6ff;
-      display: inline-block;
-      margin-bottom: 15px;
-      font-weight: 600;
-      font-size: 1.4rem;
-    }
-    .card ul {
-      list-style: none;
-      margin-top: 10px;
-    }
-    .card li {
-      margin: 8px 0;
-      transition: transform 0.2s ease-in-out;
-    }
-    .card li:hover {
-      transform: translateX(8px);
-    }
-    .card a {
-      color: #00c6ff;
-      text-decoration: none;
+    /* Section Titles */
+    section h2 {
+      font-size: 1.8rem;
       font-weight: 500;
-    }
-    .card a:hover {
-      color: #ffcc00;
-    }
-    .card select {
-      width: 100%;
-      padding: 10px;
       margin-bottom: 10px;
-      border-radius: 5px;
-      border: none;
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
-      outline: none;
-      font-size: 1rem;
+      color: #008fc7;
+    }
+    section {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
     }
 
-    /* Recommendations Section */
-    .recommendations {
-      margin-top: 40px;
-      text-align: center;
+    /* Projects & Books Lists */
+    ul {
+      list-style: none;
+      margin-top: 15px;
     }
-    .recommendations h2 {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      border-bottom: 2px solid #00c6ff;
-      display: inline-block;
-      font-weight: 600;
+    li {
+      margin: 8px 0;
+      transition: transform 0.2s;
     }
-    .recommendations select {
-      padding: 10px;
+    li:hover {
+      transform: translateX(6px);
+    }
+
+    /* Book Filters */
+    .books select, .recommendations select {
+      width: 100%;
+      max-width: 300px;
+      padding: 8px;
       margin-top: 10px;
-      border-radius: 5px;
-      border: none;
-      background: rgba(255, 255, 255, 0.2);
-      color: white;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
       font-size: 1rem;
+      color: #333;
       outline: none;
     }
-    .recommendations p {
+
+    /* Recommendation Paragraph */
+    #selectedRecommendation {
       margin-top: 10px;
-      font-size: 1rem;
+      color: #555;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 20px;
-      background: rgba(0,0,0,0.4);
-      font-size: 0.85rem;
-      color: #fff;
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #777;
+      padding-bottom: 10px;
     }
 
-    /* Animations */
-    @keyframes fadeInDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-25px);
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.4rem;
       }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
+      section h2 {
+        font-size: 1.6rem;
       }
     }
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
   </style>
 </head>
 <body>
+
   <div class="container">
+    <!-- Hero / Header -->
     <header>
       <h1>Kevin Conklin</h1>
       <p>Engineer | Tech Enthusiast</p>
     </header>
 
-    <div class="card-grid">
-      <!-- Featured Projects -->
-      <section class="card projects">
-        <h2>Featured Projects</h2>
-        <ul>
-          <li><a href="#">LLMs Evaluating LLMs</a></li>
-          <li><a href="#">Simple LLM Testing Framework</a></li>
-          <li><a href="#">BigQuery Vector Store</a></li>
-          <li><a href="#">"War" Card Game (bolt.net demo)</a></li>
-        </ul>
-      </section>
+    <!-- Featured Projects -->
+    <section class="projects">
+      <h2>Featured Projects</h2>
+      <ul>
+        <li><a href="#">LLMs Evaluating LLMs</a></li>
+        <li><a href="#">Simple LLM Testing Framework</a></li>
+        <li><a href="#">BigQuery Vector Store</a></li>
+        <li><a href="#">"War" Card Game (bolt.net demo)</a></li>
+      </ul>
+    </section>
 
-      <!-- Books I'm Reading -->
-      <section class="card books">
-        <h2>Books I've Read</h2>
-        <select id="yearFilter" onchange="filterBooks()">
-          <option value="all">All Years</option>
-          <option value="2025">2025</option>
-          <option value="2024">2024</option>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-        </select>
-        <ul id="booksList">
-          <li data-year="2025"><a href="https://app.thestorygraph.com/books/046c4ef7-9c13-45fa-bd9e-857af78360e6">Oathbringer</a> - Brandon Sanderson</li>
-          <li data-year="2025"><a href="https://app.thestorygraph.com/books/10f4c48c-e830-4336-9903-db89dbf4f1e1">Edgedancer</a> - Brandon Sanderson</li>
-          <li data-year="2025"><a href="https://app.thestorygraph.com/books/8b279801-c903-4909-900f-ef852c87f65c">Words of Radiance</a> - Brandon Sanderson</li>
-          <li data-year="2025"><a href="https://app.thestorygraph.com/books/10a10b05-04cf-4dac-ba55-04c6f68d10a7">The Way of Kings</a> - Brandon Sanderson</li>
-        </ul>
-      </section>
-    </div>
+    <!-- Books I'm Reading (Filtered) -->
+    <section class="books">
+      <h2>Books I've Read</h2>
+      <select id="yearFilter" onchange="filterBooks()">
+        <option value="all">All</option>
+        <option value="2025">2025</option>
+        <option value="2024">2024</option>
+        <option value="2023">2023</option>
+        <option value="2022">2022</option>
+      </select>
+      <ul id="booksList">
+        <li data-year="2025"><a href="https://app.thestorygraph.com/books/046c4ef7-9c13-45fa-bd9e-857af78360e6">Oathbringer</a> - Brandon Sanderson</li>
+        <li data-year="2025"><a href="https://app.thestorygraph.com/books/10f4c48c-e830-4336-9903-db89dbf4f1e1">Edgedancer</a> - Brandon Sanderson</li>
+        <li data-year="2025"><a href="https://app.thestorygraph.com/books/8b279801-c903-4909-900f-ef852c87f65c">Words of Radiance</a> - Brandon Sanderson</li>
+        <li data-year="2025"><a href="https://app.thestorygraph.com/books/10a10b05-04cf-4dac-ba55-04c6f68d10a7">The Way of Kings</a> - Brandon Sanderson</li>
+      </ul>
+    </section>
 
-    <!-- Recommendations -->
+    <!-- Book Recommendations -->
     <section class="recommendations">
       <h2>Books I Recommend</h2>
       <select id="recommendDropdown" onchange="showRecommendation()">
@@ -224,13 +170,15 @@
       </select>
       <p id="selectedRecommendation"></p>
     </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 Kevin Conklin. All Rights Reserved.</p>
+    </footer>
   </div>
 
-  <footer>
-    <p>&copy; 2024 Kevin Conklin. All Rights Reserved.</p>
-  </footer>
-
   <script>
+    // Filter Books by Year
     function filterBooks() {
       var selectedYear = document.getElementById("yearFilter").value;
       document.querySelectorAll("#booksList li").forEach(book => {
@@ -240,9 +188,10 @@
       });
     }
 
+    // Display Recommendation
     function showRecommendation() {
       var selectedBook = document.getElementById("recommendDropdown").value;
-      document.getElementById("selectedRecommendation").innerText = 
+      document.getElementById("selectedRecommendation").innerText =
         selectedBook ? `You selected: ${selectedBook}` : "";
     }
   </script>
