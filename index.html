@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kevin Conklin - Software Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
     * {
       margin: 0;
@@ -16,23 +15,27 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: white;
-      overflow-x: hidden;
+      background: linear-gradient(to top right, #1a2a6c, #b21f1f, #fdbb2d);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
+    /* Container wraps all content */
     .container {
       width: 90%;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
-      padding: 20px;
+      padding: 40px 20px;
+      flex: 1;
     }
 
+    /* Header / Hero */
     header {
       text-align: center;
-      padding: 40px 0;
+      margin-bottom: 40px;
     }
-
     header h1 {
       font-size: 3rem;
       font-weight: 600;
@@ -40,102 +43,136 @@
       background: linear-gradient(90deg, #00c6ff, #0072ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: fadeIn 1.5s ease-in-out;
+      animation: fadeInDown 1.2s ease-in-out;
     }
-
     header p {
-      font-size: 1.2rem;
-      opacity: 0.8;
+      font-size: 1.25rem;
       margin-top: 10px;
-      animation: fadeIn 2s ease-in-out;
+      opacity: 0.8;
+      animation: fadeInUp 1.2s ease-in-out;
     }
 
-    .content {
-      display: flex;
-      gap: 40px;
-      justify-content: space-between;
-      margin-bottom: 40px;
+    /* Card Container */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+    }
+    @media (max-width: 768px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .content section {
-      flex: 1;
-      background: rgba(255, 255, 255, 0.1);
+    /* Card Styles */
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(10px);
       border-radius: 15px;
       padding: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .content section:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
     }
-
-    .content h2 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
+    .card h2 {
       border-bottom: 2px solid #00c6ff;
-      padding-bottom: 5px;
       display: inline-block;
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 1.4rem;
     }
-
-    .projects ul, .books ul {
-      list-style-type: none;
+    .card ul {
+      list-style: none;
       margin-top: 10px;
     }
-
-    .projects li, .books li {
-      margin: 15px 0;
-      font-size: 1.1rem;
+    .card li {
+      margin: 8px 0;
       transition: transform 0.2s ease-in-out;
     }
-
-    .projects li:hover, .books li:hover {
+    .card li:hover {
       transform: translateX(8px);
     }
-
-    .projects a, .books a {
+    .card a {
       color: #00c6ff;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
     }
-
-    .projects a:hover, .books a:hover {
+    .card a:hover {
       color: #ffcc00;
     }
-
-    select {
+    .card select {
       width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    /* Recommendations Section */
+    .recommendations {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .recommendations h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #00c6ff;
+      display: inline-block;
+      font-weight: 600;
+    }
+    .recommendations select {
       padding: 10px;
       margin-top: 10px;
       border-radius: 5px;
       border: none;
-      font-size: 1rem;
       background: rgba(255, 255, 255, 0.2);
       color: white;
+      font-size: 1rem;
       outline: none;
     }
+    .recommendations p {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      font-size: 0.9rem;
+      background: rgba(0,0,0,0.4);
+      font-size: 0.85rem;
+      color: #fff;
     }
 
     /* Animations */
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 768px) {
-      .content {
-        flex-direction: column;
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-25px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -145,9 +182,9 @@
       <p>Engineer | Tech Enthusiast</p>
     </header>
 
-    <div class="content">
+    <div class="card-grid">
       <!-- Featured Projects -->
-      <section class="projects">
+      <section class="card projects">
         <h2>Featured Projects</h2>
         <ul>
           <li><a href="#">LLMs Evaluating LLMs</a></li>
@@ -158,18 +195,15 @@
       </section>
 
       <!-- Books I'm Reading -->
-      <section class="books">
+      <section class="card books">
         <h2>Books I've Read</h2>
-
-        <!-- Filter by Year -->
         <select id="yearFilter" onchange="filterBooks()">
-          <option value="all">All</option>
+          <option value="all">All Years</option>
           <option value="2025">2025</option>
           <option value="2024">2024</option>
           <option value="2023">2023</option>
           <option value="2022">2022</option>
         </select>
-
         <ul id="booksList">
           <li data-year="2025"><a href="https://app.thestorygraph.com/books/046c4ef7-9c13-45fa-bd9e-857af78360e6">Oathbringer</a> - Brandon Sanderson</li>
           <li data-year="2025"><a href="https://app.thestorygraph.com/books/10f4c48c-e830-4336-9903-db89dbf4f1e1">Edgedancer</a> - Brandon Sanderson</li>
@@ -179,6 +213,7 @@
       </section>
     </div>
 
+    <!-- Recommendations -->
     <section class="recommendations">
       <h2>Books I Recommend</h2>
       <select id="recommendDropdown" onchange="showRecommendation()">
@@ -189,23 +224,26 @@
       </select>
       <p id="selectedRecommendation"></p>
     </section>
-
-    <footer>
-      <p>&copy; 2024 Kevin Conklin. All Rights Reserved.</p>
-    </footer>
   </div>
+
+  <footer>
+    <p>&copy; 2024 Kevin Conklin. All Rights Reserved.</p>
+  </footer>
 
   <script>
     function filterBooks() {
       var selectedYear = document.getElementById("yearFilter").value;
       document.querySelectorAll("#booksList li").forEach(book => {
-        book.style.display = selectedYear === "all" || book.dataset.year === selectedYear ? "block" : "none";
+        book.style.display = (selectedYear === "all" || book.dataset.year === selectedYear)
+          ? "block"
+          : "none";
       });
     }
 
     function showRecommendation() {
       var selectedBook = document.getElementById("recommendDropdown").value;
-      document.getElementById("selectedRecommendation").innerText = selectedBook ? `You selected: ${selectedBook}` : "";
+      document.getElementById("selectedRecommendation").innerText = 
+        selectedBook ? `You selected: ${selectedBook}` : "";
     }
   </script>
 </body>
