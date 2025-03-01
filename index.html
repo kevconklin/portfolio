@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Personal Site</title>
+  <title>Kevin Conklin</title>
   <style>
-    /* Basic resets */
+    /* Global reset and base styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
+      background: #1f1f1f;
+      color: #eee;
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
       padding: 40px;
     }
 
@@ -21,9 +22,11 @@
     h1 {
       text-align: center;
       margin-bottom: 30px;
+      font-size: 2rem;
+      color: #fff;
     }
 
-    /* Tabs Container */
+    /* Tab Buttons Container */
     .tabs {
       display: flex;
       justify-content: center;
@@ -33,17 +36,16 @@
     .tabs button {
       padding: 10px 20px;
       border: none;
-      background: #ddd;
+      background: #333;
+      color: #eee;
       cursor: pointer;
       font-size: 1rem;
       border-radius: 5px;
-      transition: background 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
     .tabs button:hover {
-      background: #ccc;
+      background: #444;
     }
-
-    /* Active tab styling */
     .tabs button.active {
       background: #008fc7;
       color: #fff;
@@ -51,22 +53,29 @@
 
     /* Section styling */
     section {
-      display: none; /* Hide all sections by default */
-      background: #fff;
+      display: none; /* Hide sections by default */
+      background: #2a2a2a;
       padding: 20px;
       border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      min-height: 200px;
+      margin: 0 auto 30px; 
+      max-width: 600px; 
+      box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      min-height: 200px; /* Ensures a consistent layout on smaller content */
     }
     section h2 {
       margin-bottom: 10px;
       color: #008fc7;
     }
+    p {
+      color: #ccc;
+    }
+
+    /* Active section is displayed via script */
   </style>
 </head>
 <body>
 
-  <h1>My Personal Site</h1>
+  <h1>Kevin Conklin</h1>
 
   <!-- Tab Buttons -->
   <div class="tabs">
@@ -90,7 +99,7 @@
   <!-- Recommendations Tab Content -->
   <section id="recommendations">
     <h2>Recommendations</h2>
-    <p>Share your recommended tools, tutorials, articles, or other resources you love.</p>
+    <p>Share recommended tools, tutorials, articles, or other resources you love.</p>
   </section>
 
   <script>
