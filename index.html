@@ -3,197 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kevin Conklin - Software Engineer</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <title>My Personal Site</title>
   <style>
-    /* Global Reset & Base */
+    /* Basic resets */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.5;
-    }
-    a {
-      text-decoration: none;
-      color: #008fc7; /* Accent color */
-    }
-    a:hover {
-      color: #005b85; /* Slightly darker accent on hover */
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
     }
 
-    /* Container for all content */
-    .container {
-      width: 95%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    /* Hero Section */
-    header {
+    /* Page Title */
+    h1 {
       text-align: center;
-      margin-bottom: 50px;
-    }
-    header h1 {
-      font-size: 3rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, #008fc7, #00c6ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #555;
+      margin-bottom: 30px;
     }
 
-    /* Section Titles */
+    /* Tabs Container */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .tabs button {
+      padding: 10px 20px;
+      border: none;
+      background: #ddd;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .tabs button:hover {
+      background: #ccc;
+    }
+
+    /* Active tab styling */
+    .tabs button.active {
+      background: #008fc7;
+      color: #fff;
+    }
+
+    /* Section styling */
+    section {
+      display: none; /* Hide all sections by default */
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      min-height: 200px;
+    }
     section h2 {
-      font-size: 1.8rem;
-      font-weight: 500;
       margin-bottom: 10px;
       color: #008fc7;
-    }
-    section {
-      margin-bottom: 40px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    /* Projects & Books Lists */
-    ul {
-      list-style: none;
-      margin-top: 15px;
-    }
-    li {
-      margin: 8px 0;
-      transition: transform 0.2s;
-    }
-    li:hover {
-      transform: translateX(6px);
-    }
-
-    /* Book Filters */
-    .books select, .recommendations select {
-      width: 100%;
-      max-width: 300px;
-      padding: 8px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background: #fff;
-      font-size: 1rem;
-      color: #333;
-      outline: none;
-    }
-
-    /* Recommendation Paragraph */
-    #selectedRecommendation {
-      margin-top: 10px;
-      color: #555;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: #777;
-      padding-bottom: 10px;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.4rem;
-      }
-      section h2 {
-        font-size: 1.6rem;
-      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <!-- Hero / Header -->
-    <header>
-      <h1>Kevin Conklin</h1>
-      <p>Engineer | Tech Enthusiast</p>
-    </header>
+  <h1>My Personal Site</h1>
 
-    <!-- Featured Projects -->
-    <section class="projects">
-      <h2>Featured Projects</h2>
-      <ul>
-        <li><a href="#">LLMs Evaluating LLMs</a></li>
-        <li><a href="#">Simple LLM Testing Framework</a></li>
-        <li><a href="#">BigQuery Vector Store</a></li>
-        <li><a href="#">"War" Card Game (bolt.net demo)</a></li>
-      </ul>
-    </section>
-
-    <!-- Books I'm Reading (Filtered) -->
-    <section class="books">
-      <h2>Books I've Read</h2>
-      <select id="yearFilter" onchange="filterBooks()">
-        <option value="all">All</option>
-        <option value="2025">2025</option>
-        <option value="2024">2024</option>
-        <option value="2023">2023</option>
-        <option value="2022">2022</option>
-      </select>
-      <ul id="booksList">
-        <li data-year="2025"><a href="https://app.thestorygraph.com/books/046c4ef7-9c13-45fa-bd9e-857af78360e6">Oathbringer</a> - Brandon Sanderson</li>
-        <li data-year="2025"><a href="https://app.thestorygraph.com/books/10f4c48c-e830-4336-9903-db89dbf4f1e1">Edgedancer</a> - Brandon Sanderson</li>
-        <li data-year="2025"><a href="https://app.thestorygraph.com/books/8b279801-c903-4909-900f-ef852c87f65c">Words of Radiance</a> - Brandon Sanderson</li>
-        <li data-year="2025"><a href="https://app.thestorygraph.com/books/10a10b05-04cf-4dac-ba55-04c6f68d10a7">The Way of Kings</a> - Brandon Sanderson</li>
-      </ul>
-    </section>
-
-    <!-- Book Recommendations -->
-    <section class="recommendations">
-      <h2>Books I Recommend</h2>
-      <select id="recommendDropdown" onchange="showRecommendation()">
-        <option value="">Select a Book</option>
-        <option value="Deep Work">Deep Work - Cal Newport</option>
-        <option value="The Pragmatic Programmer">The Pragmatic Programmer - Andrew Hunt</option>
-        <option value="Clean Code">Clean Code - Robert C. Martin</option>
-      </select>
-      <p id="selectedRecommendation"></p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2024 Kevin Conklin. All Rights Reserved.</p>
-    </footer>
+  <!-- Tab Buttons -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('projects')">Projects</button>
+    <button class="tab-btn" onclick="showTab('bookShelf')">Book Shelf</button>
+    <button class="tab-btn" onclick="showTab('recommendations')">Recommendations</button>
   </div>
 
-  <script>
-    // Filter Books by Year
-    function filterBooks() {
-      var selectedYear = document.getElementById("yearFilter").value;
-      document.querySelectorAll("#booksList li").forEach(book => {
-        book.style.display = (selectedYear === "all" || book.dataset.year === selectedYear)
-          ? "block"
-          : "none";
-      });
-    }
+  <!-- Projects Tab Content -->
+  <section id="projects" style="display: block;">
+    <h2>Projects</h2>
+    <p>Showcase your favorite or latest projects here! You can include links, screenshots, or brief descriptions.</p>
+  </section>
 
-    // Display Recommendation
-    function showRecommendation() {
-      var selectedBook = document.getElementById("recommendDropdown").value;
-      document.getElementById("selectedRecommendation").innerText =
-        selectedBook ? `You selected: ${selectedBook}` : "";
+  <!-- Book Shelf Tab Content -->
+  <section id="bookShelf">
+    <h2>Book Shelf</h2>
+    <p>List books you're currently reading, have read, or want to read. Share recommendations or reviews!</p>
+  </section>
+
+  <!-- Recommendations Tab Content -->
+  <section id="recommendations">
+    <h2>Recommendations</h2>
+    <p>Share your recommended tools, tutorials, articles, or other resources you love.</p>
+  </section>
+
+  <script>
+    function showTab(tabId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.style.display = 'none');
+
+      // Remove "active" class from all buttons
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+
+      // Show the selected section
+      const activeSection = document.getElementById(tabId);
+      if (activeSection) {
+        activeSection.style.display = 'block';
+      }
+
+      // Add "active" class to the button clicked
+      const clickedButton = event.target;
+      clickedButton.classList.add('active');
     }
   </script>
+
 </body>
 </html>
